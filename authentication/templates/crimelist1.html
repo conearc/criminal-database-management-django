@@ -1,0 +1,113 @@
+{% extends "index2.html" %}
+
+{% block title %}
+Criminal List {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Crimes Reported</h1>
+{% if crimes %}
+<div class="tablediv">
+    <table class="table">
+        <thead>
+            <tr>
+
+
+                <td>FirNo.</td>
+                <td>Detail</td>
+                <td>Date</td>
+                <td>Time</td>
+                <td>Complainent name</td>
+                <td>Complainent address</td>
+                <td>Police Station</td>
+                <td>Investigation Detail</td>
+                <td>Investigation Officer</td>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for crime in crimes %}
+            <tr>
+                <td>{{ crime.firno }}</td>
+                <td>{{ crime.detail }}</td>
+                <td>{{ crime.date }}</td>
+                <td>{{ crime.time }}</td>
+                <td>{{ crime.complainent_name }}</td>
+                <td>{{ crime.complainent_address }}</td>
+                <td>{{ crime.policestation }}</td>
+                <td>{{ crime.investigation_detail }}</td>
+                <td>{{ crime.investigating_officer }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% endif %}
+
+
+</div>
+<style>
+    body {
+
+        background-image: url("https://i.pinimg.com/474x/92/80/c9/9280c9e82c384776186a32475657b48c.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .tablediv {
+        background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcHBwgHBwcHBwcNBw0NDQcHBw8ICQcNFREWFhURHx8YKCggGCYlJx8VITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDw0NDisZFRkrLS03KysrKysrKy0rKysrLS0rKystKysrKy0tKystKysrKysrKystKysrKysrKysrK//AABEIAJ8BPgMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAABAgAHBv/EABUQAQEAAAAAAAAAAAAAAAAAAAAB/8QAGQEBAQEBAQEAAAAAAAAAAAAAAgYBAwcF/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/APegh9B54AQ0mTSK0oKGoIoBTU0igoKaUOCimppQoKK1FKHBU01NKHBU01NKHBU00U4cFTTU0ocFTTU04cFTTU0ocFTTRThxNFNTShwVNNTShwVNNFKHBU01NOFBQ1BHHv2YJdGhmBFBRTUtKMkikUFSaKUKBNNFKHBU01NKFGqaamlDgqaamlDgqaaKcOJopqaUOCppqaUOCppqacdIKmmppQ4KK1FOFBU01NKOkFTTU0oUFFNTShwVNNScOMk0EUdASQl0awrCtKChgRQCmppFBRTU0ocFFNTShQUVqKRwVNNTShwVNNTShwUVqKcOCppqaUOCppqacOCppqaUOCppopw4KmmppQ4KmmppQ4KmmilDgqaamnCgorCkcFFNSUKOgMwS6NgopqWwoARSKCpNFIoKK1FKHBU01NKFGqaamlDgqaamlDgqaaKcOJopqaUOCppqacOCppqaUdIKmmppQ4KKamnCgqaamlHSCppqaUKCimppQ4Kmmppw41TTRShQVJSRx0JNIqWRkFSaKRQClNKFBQamkcappqaUKCimppQ4KmmppQ4KmmppQ4KK1FOHBU01NKHBU01NOHBU01NKHBU00UocFTTU04cFTTU0ocFTTU0ocappqacKCisKRwUU1JQoAwIo6DRTUpZGwAgigqaaKRQCtRShwVNNFKFBU01NKHBU01NKHBU01NOHGqaamlDgqaamlDgqaamnDgqaamlHSCimppwoKmmppR0gqaamlCgorVNKHGqaamnDjJpopQoKmmpI41DBrY6DUkJdGwCmppQoKCmlDgopqaUKCgppQ4KmmppQ4KmmppQ4KK1FOHBU01NKHBU01NOHBU01NKHBU00UocFTTU04cFTTU0ocFTTRShxNFNTThQUMCOCimpKFBQ1BG1SQ1roAIqXRsFTTQRQCtRShwVNNFKFAmmppQ4KmmppQ5BU01NOHBRTU0ocFTTU0ocFTTamnDgqaamlHSCitRThQVNNTSjpBU01NKFGqaamlDgqaamnDjVNNFIoKmlJHGDBrYKGoInQaKampeI2AU1NI41TTU0oUApqaUOCppqaUOCppqaUOCitRThwVNNTShwVNNTThwVNNTShwVNNFKHBU01NOHBU01NKHBRWopHBU01NOFBQ1BHBRTU0oUFDAiZNKa0owYEToNTSKl0bBRWopQ4KmmilCgqaamlDgqaamlDgqaaKcOCppqaUOCppqaUOCppqacOCppqaUdIKKamnCgqaamlHSQVNNTShRqmmppQ4Kmmppw41TSKRQVNKaRxgwaUFBqSawZmk//9k=");
+        background-size: cover;
+        margin-left: 5%;
+        margin-right: 5%;
+        border-radius: 20px;
+    }
+
+
+    .add {
+        margin: auto;
+        text-align: center;
+        display: flex;
+
+    }
+
+
+
+
+    h1 {
+        margin-top: 10%;
+        font-size: 70px;
+        font-family: "Verdana";
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .jumbotron {
+        display: block;
+        margin: auto;
+        margin-top: 10%;
+        text-align: center;
+        width: 80%;
+
+    }
+
+    table {
+        text-align: center;
+        margin: auto;
+    }
+
+
+
+    button,
+    input {
+        font: 1em Hind, sans-serif;
+        line-height: 1.5em;
+    }
+</style>
+
+
+
+
+{% endblock %}

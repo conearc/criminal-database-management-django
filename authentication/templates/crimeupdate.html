@@ -1,0 +1,109 @@
+{% extends "index1.html" %}
+
+{% block title %}
+Update Crime {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<div class="myform">
+    <div class="login">
+
+        <h1 class="formtitle">Update Crime Details </h1>
+
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<style>
+    .formtitle {
+        color: blue;
+        font-weight: bold;
+        font-family: 'Verdana';
+        font-style: italic;
+
+    }
+
+    .myform {
+        display: block;
+        margin: auto;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        height: 50%;
+        margin-left: 20%;
+        margin-right: 20%;
+        text-align: center;
+        width: 50%;
+
+    }
+
+    input {
+
+
+        position: relative;
+
+
+        font-size: 1.5em;
+
+
+        border-color: blue;
+
+
+        padding: 10px;
+
+        display: inline-block;
+
+        border-radius: 9999em;
+        margin-bottom: 10px;
+
+
+    }
+
+    select {
+
+        position: relative;
+
+
+        font-size: 1.5em;
+
+
+        border-color: blue;
+
+
+        padding: 10px;
+
+        display: inline-block;
+
+        border-radius: 9999em;
+        margin-bottom: 10px;
+
+
+    }
+
+
+    table {
+        text-align: center;
+        margin: auto;
+    }
+
+    body {
+
+        background-image: url("/criminal/images/image.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+
+
+{% endblock %}

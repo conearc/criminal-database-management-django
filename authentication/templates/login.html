@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block title %}
+Create User - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class=jumbotron>
+    <div class="card">
+        <h4 class="card-header text-center">Login</h4>
+        <div class="card-block">
+            <form method="post" action="/login/">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% block title %}
+Create User - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+
+    <form class="form-signin" action="" method="post" id="login-form">{% csrf_token %}
+
+        <h2 class="form-signin-heading">{{ message }}</h2>
+        <br>
+        <label for="id_username" class="sr-only">Email address</label>
+        <input type="text" name="username" id="id_username" class="form-control" placeholder="User Name" required
+            autofocus>
+        <br>
+        <label for="id_password" class="sr-only">Password</label>
+        <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+</div> <!-- /container -->
+<style>
+    .jumbotron {
+        display: block;
+        margin: auto;
+        margin-top: 10%;
+        text-align: center;
+        width: 50%;
+
+    }
+
+    table {
+        text-align: center;
+        margin: auto;
+    }
+</style>
+{% endblock %}

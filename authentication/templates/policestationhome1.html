@@ -1,0 +1,248 @@
+{% extends "index2.html" %}
+
+{% block title %}
+PoliceStation {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+
+<h1> Enter PoliceStation name to see PoliceStation Information </h1>
+<form action="/policestationhome" class="search-bar">
+    <input type="search" name="name">
+    <button class="search-btn" type="submit">
+        <span>Search</span>
+    </button>
+</form>
+{% if policestations %}
+<div class="tablediv">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Address</td>
+                <td>ContactNo.</td>
+                <td>Pincode</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for policestation in policestations %}
+            <tr>
+                <td>{{ policestation.name }}</td>
+                <td>{{ policestation.address }}</td>
+                <td>{{ policestation.contactno }}</td>
+                <td>{{ policestation.pincode }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+
+<style>
+    body {
+
+        background-image: url("https://i.pinimg.com/474x/92/80/c9/9280c9e82c384776186a32475657b48c.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .tablediv {
+        background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcHBwgHBwcHBwcNBw0NDQcHBw8ICQcNFREWFhURHx8YKCggGCYlJx8VITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDw0NDisZFRkrLS03KysrKysrKy0rKysrLS0rKystKysrKy0tKystKysrKysrKystKysrKysrKysrK//AABEIAJ8BPgMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAABAgAHBv/EABUQAQEAAAAAAAAAAAAAAAAAAAAB/8QAGQEBAQEBAQEAAAAAAAAAAAAAAgYBAwcF/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/APegh9B54AQ0mTSK0oKGoIoBTU0igoKaUOCimppQoKK1FKHBU01NKHBU01NKHBU00U4cFTTU0ocFTTU04cFTTU0ocFTTRThxNFNTShwVNNTShwVNNFKHBU01NOFBQ1BHHv2YJdGhmBFBRTUtKMkikUFSaKUKBNNFKHBU01NKFGqaamlDgqaamlDgqaaKcOJopqaUOCppqaUOCppqacdIKmmppQ4KK1FOFBU01NKOkFTTU0oUFFNTShwVNNScOMk0EUdASQl0awrCtKChgRQCmppFBRTU0ocFFNTShQUVqKRwVNNTShwVNNTShwUVqKcOCppqaUOCppqacOCppqaUOCppopw4KmmppQ4KmmppQ4KmmilDgqaamnCgorCkcFFNSUKOgMwS6NgopqWwoARSKCpNFIoKK1FKHBU01NKFGqaamlDgqaamlDgqaaKcOJopqaUOCppqacOCppqaUdIKmmppQ4KKamnCgqaamlHSCppqaUKCimppQ4Kmmppw41TTRShQVJSRx0JNIqWRkFSaKRQClNKFBQamkcappqaUKCimppQ4KmmppQ4KmmppQ4KK1FOHBU01NKHBU01NOHBU01NKHBU00UocFTTU04cFTTU0ocFTTU0ocappqacKCisKRwUU1JQoAwIo6DRTUpZGwAgigqaaKRQCtRShwVNNFKFBU01NKHBU01NKHBU01NOHGqaamlDgqaamlDgqaamnDgqaamlHSCimppwoKmmppR0gqaamlCgorVNKHGqaamnDjJpopQoKmmpI41DBrY6DUkJdGwCmppQoKCmlDgopqaUKCgppQ4KmmppQ4KmmppQ4KK1FOHBU01NKHBU01NOHBU01NKHBU00UocFTTU04cFTTU0ocFTTRShxNFNTThQUMCOCimpKFBQ1BG1SQ1roAIqXRsFTTQRQCtRShwVNNFKFAmmppQ4KmmppQ5BU01NOHBRTU0ocFTTU0ocFTTamnDgqaamlHSCitRThQVNNTSjpBU01NKFGqaamlDgqaamnDjVNNFIoKmlJHGDBrYKGoInQaKampeI2AU1NI41TTU0oUApqaUOCppqaUOCppqaUOCitRThwVNNTShwVNNTThwVNNTShwVNNFKHBU01NOHBU01NKHBRWopHBU01NOFBQ1BHBRTU0oUFDAiZNKa0owYEToNTSKl0bBRWopQ4KmmilCgqaamlDgqaamlDgqaaKcOCppqaUOCppqaUOCppqacOCppqaUdIKKamnCgqaamlHSQVNNTShRqmmppQ4Kmmppw41TSKRQVNKaRxgwaUFBqSawZmk//9k=");
+        background-size: cover;
+        margin-left: 5%;
+        margin-right: 5%;
+        border-radius: 20px;
+    }
+
+
+    .add {
+        margin: auto;
+        text-align: center;
+        display: flex;
+
+    }
+
+
+
+
+    h1 {
+        margin-top: 10%;
+        font-size: 70px;
+        font-family: "Verdana";
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .jumbotron {
+        display: block;
+        margin: auto;
+        margin-top: 10%;
+        text-align: center;
+        width: 80%;
+
+    }
+
+    table {
+        text-align: center;
+        margin: auto;
+    }
+
+
+
+    button,
+    input {
+        font: 1em Hind, sans-serif;
+        line-height: 1.5em;
+    }
+
+    input {
+        color: #171717;
+    }
+
+    .search-bar {
+        display: flex;
+    }
+
+
+
+
+    .search-bar input,
+    .search-btn {
+        width: 3em;
+        height: 3em;
+    }
+
+
+
+    .search-bar,
+    .search-bar input {
+        width: 100%;
+    }
+
+    .search-bar input:focus,
+    .search-bar input:not(:focus)+.search-btn:focus {
+        outline: transparent;
+    }
+
+    .search-bar {
+        margin: auto;
+        padding: 1.5em;
+        justify-content: center;
+        max-width: 30em;
+    }
+
+    .search-bar input {
+        background: transparent;
+        border-radius: 1.5em;
+        box-shadow: 0 0 0 0.4em #171717 inset;
+        padding: 0.75em;
+        transform: translate(0.5em, 0.5em) scale(0.5);
+        transform-origin: 100% 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .search-bar input::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+
+    .search-bar input {
+        background: #fff;
+        border-radius: 0.375em 0 0 0.375em;
+        box-shadow: 0 0 0 0.1em #d9d9d9 inset;
+        transform: scale(1);
+    }
+
+    .search-btn {
+        background: #171717;
+        border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
+        padding: 0.75em;
+        position: relative;
+        transform: translate(0.25em, 0.25em) rotate(45deg) scale(0.25, 0.125);
+        transform-origin: 0 50%;
+    }
+
+    .search-btn:before,
+    .search-btn:after {
+        content: "";
+        display: block;
+        opacity: 1;
+        position: absolute;
+    }
+
+    .search-btn:before {
+        border-radius: 50%;
+        box-shadow: 0 0 0 0.2em #f1f1f1 inset;
+        top: 0.75em;
+        left: 0.75em;
+        width: 1.2em;
+        height: 1.2em;
+    }
+
+    .search-btn:after {
+        background: #f1f1f1;
+        border-radius: 0 0.25em 0.25em 0;
+        top: 51%;
+        left: 51%;
+        width: 0.75em;
+        height: 0.25em;
+        transform: translate(0.2em, 0) rotate(45deg);
+        transform-origin: 0 50%;
+    }
+
+    .search-btn span {
+        display: inline-block;
+        overflow: hidden;
+        width: 1px;
+        height: 1px;
+    }
+
+    /* Active state */
+    .search-bar input+.search-btn {
+        background: #2762f3;
+        border-radius: 0 0.375em 0.375em 0;
+        transform: scale(1);
+    }
+
+    .search-bar input+.search-btn {
+        opacity: 1;
+    }
+
+    .search-bar input+.search-btn {
+        background: #0c48db;
+    }
+
+    .search-bar input+.search-btn {
+        transform: translateY(1px);
+    }
+
+    @media screen and (prefers-color-scheme: dark) {
+        input {
+            color: #f1f1f1;
+        }
+
+        .search-bar input {
+            box-shadow: 0 0 0 0.4em #f1f1f1 inset;
+        }
+
+        .search-bar input {
+            background: #3d3d3d;
+            box-shadow: 0 0 0 0.1em #3d3d3d inset;
+        }
+
+        .search-btn {
+            background: #f1f1f1;
+        }
+    }
+</style>
+
+
+
+
+
+{% endblock %}
